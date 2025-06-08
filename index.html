@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The K-Chic | Authentic Korean Cuisine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects not available in Tailwind */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .menu-category:hover .category-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        #hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="font-sans bg-rose-50">
+    <!-- Header with Navigation -->
+    <header class="bg-red-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="relative w-8 h-8 text-yellow-300">
+                    <i class="fas fa-bowl-food text-2xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold">The <span class="text-yellow-300">K</span>-Chic</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-yellow-300 transition">Home</a>
+                <a href="#about" class="hover:text-yellow-300 transition">About</a>
+                <a href="#menu" class="hover:text-yellow-300 transition">Menu</a>
+                <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-red-900 px-4 py-2">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="hover:text-yellow-300 transition">Home</a>
+                <a href="#about" class="hover:text-yellow-300 transition">About</a>
+                <a href="#menu" class="hover:text-yellow-300 transition">Menu</a>
+                <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center text-center text-white fade-in">
+        <div class="container mx-auto px-4 py-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Experience <span class="text-yellow-300">Authentic</span> Korean Flavors</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Traditional recipes with modern presentation for an unforgettable dining experience</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-yellow-500 hover:bg-yellow-600 text-red-900 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">View Menu</a>
+                <a href="#contact" class="border-2 border-white hover:bg-white hover:text-red-900 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">Reservations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold text-red-800 mb-6">Our Story</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        The K-Chic was born from our passion to bring authentic Korean flavors with a modern twist to Manila. 
+                        Our team crafts each dish using traditional techniques and premium ingredients.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        We believe in the harmony of flavors - the perfect balance of sweet, spicy, salty, and umami that makes 
+                        Korean cuisine unique and unforgettable.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-carrot text-yellow-500 mr-2"></i>
+                            <span>Fresh Ingredients</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-pepper-hot text-red-500 mr-2"></i>
+                            <span>Authentic Recipes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="w-full max-w-md">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                             alt="Fresh Vegetables" 
+                             class="rounded-lg shadow-xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-rose-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-red-800 mb-4">Our Menu</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Each dish is carefully crafted to bring you the authentic taste of Korea, from traditional recipes to modern interpretations.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-4 mb-8" id="menu-categories">
+                <button class="menu-category py-3 px-4 bg-red-800 text-white rounded-lg flex flex-col items-center transition hover:bg-red-900" data-category="appetizer">
+                    <i class="fas fa-utensils category-icon text-yellow-300 text-2xl mb-2 transition"></i>
+                    <span>Appetizer</span>
+                </button>
+                <button class="menu-category py-3 px-4 bg-white text-red-800 rounded-lg flex flex-col items-center transition hover:bg-gray-100" data-category="soup">
+                    <i class="fas fa-mug-hot category-icon text-red-800 text-2xl mb-2 transition"></i>
+                    <span>Soup</span>
+                </button>
+                <button class="menu-category py-3 px-4 bg-white text-red-800 rounded-lg flex flex-col items-center transition hover:bg-gray-100" data-category="salad">
+                    <i class="fas fa-leaf category-icon text-green-600 text-2xl mb-2 transition"></i>
+                    <span>Salad</span>
+                </button>
+                <button class="menu-category py-3 px-4 bg-white text-red-800 rounded-lg flex flex-col items-center transition hover:bg-gray-100" data-category="main">
+                    <i class="fas fa-drumstick-bite category-icon text-yellow-800 text-2xl mb-2 transition"></i>
+                    <span>Main Dish</span>
+                </button>
+                <button class="menu-category py-3 px-4 bg-white text-red-800 rounded-lg flex flex-col items-center transition hover:bg-gray-100" data-category="dessert">
+                    <i class="fas fa-ice-cream category-icon text-pink-400 text-2xl mb-2 transition"></i>
+                    <span>Dessert</span>
+                </button>
+                <button class="menu-category py-3 px-4 bg-white text-red-800 rounded-lg flex flex-col items-center transition hover:bg-gray-100" data-category="drinks">
+                    <i class="fas fa-glass-martini-alt category-icon text-blue-400 text-2xl mb-2 transition"></i>
+                    <span>Drinks</span>
+                </button>
+            </div>
+            
+            <div class="menu-items-container">
+                <!-- Appetizer Menu -->
+                <div id="appetizer-menu" class="menu-section active-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Hobak Jeon</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱173</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pan-Fried Zucchini in Egg Batter</p>
+                        <div class="flex items-center text-sm text-yellow-600">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Mild</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Gilgeori Toast</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱75</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Korean Street Toast</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Hotteok</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱98</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Korean Sweet Pancakes</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Gungjung Tteokbokki</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱211</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Royal Court Rice Cake</p>
+                        <div class="flex items-center text-sm text-yellow-500">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Medium</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Haemuljeon</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱113</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Seafood Pancake</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soup Menu (hidden by default) -->
+                <div id="soup-menu" class="menu-section hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Dak Gomtang</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱139.89</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Chicken Soup</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Samgyetang</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱138</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Ginseng Chicken Soup</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Seolleongtang</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱391.99</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Beef Bone Soup</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Yukgaejang</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱351.34</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Spicy Beef Soup</p>
+                        <div class="flex items-center text-sm text-red-600">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Dakgaejang</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱184.96</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Spicy Chicken Soup</p>
+                        <div class="flex items-center text-sm text-red-500">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Spicy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Salad Menu (hidden by default) -->
+                <div id="salad-menu" class="menu-section hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Pa Muchim</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱60</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Scallion Salad</p>
+                        <div class="flex items-center text-sm text-red-500">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Dubu Salad</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱108.24</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Korean Tofu Salad</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Korean Potato Salad</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱237.30</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Creamy Potato Salad</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Musaengchae</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱164.70</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Spicy Radish Salad</p>
+                        <div class="flex items-center text-sm text-red-600">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Very Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Chicken Salad</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱220</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">With Pine Nut Dressing</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Dish Menu (hidden by default) -->
+                <div id="main-menu" class="menu-section hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Bibimbap</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱498.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Mixed Rice with Vegetables and Meat</p>
+                        <div class="flex items-center text-sm text-yellow-500">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Adjustable</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Bulgogi Deopbap</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱303</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Marinated Beef over Rice</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">La Galbi</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱645</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Marinated Beef Short Ribs</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Not Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Jeyuk Bokkeum</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱398.39</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Spicy Pork Bulgogi</p>
+                        <div class="flex items-center text-sm text-red-600">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Very Spicy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Baked Chicken Wings</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱230.29</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Crispy Korean-style Wings</p>
+                        <div class="flex items-center text-sm text-yellow-500">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Medium</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dessert Menu (hidden by default) -->
+                <div id="dessert-menu" class="menu-section hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Yaksik</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱166</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Sweet Rice with Dried Fruit and Nuts</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Sweet</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Bingsu</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱72</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Shaved Ice with Sweet Red Beans</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Sweet</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Danpatjuk</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱275</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Sweet Red Bean Porridge</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Sweet</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Subak Hwachae</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱297</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Korean Watermelon Punch</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Refreshing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Goguma Mallaengi</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱150</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Dried Sweet Potato</p>
+                        <div class="flex items-center text-sm text-yellow-300">
+                            <i class="fas fa-pepper-hot mr-1"></i>
+                            <span>Sweet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                <!-- Drinks Menu (hidden by default) -->
+                <div id="drinks-menu" class="menu-section hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Korean Yogurt Soju Cocktail</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱97</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Creamy yogurt with soju</p>
+                        <div class="flex items-center text-sm text-blue-400">
+                            <i class="fas fa-glass-cheers mr-1"></i>
+                            <span>4.5% ABV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Strawberry Soju Cocktail</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱101</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fresh strawberry soju</p>
+                        <div class="flex items-center text-sm text-blue-400">
+                            <i class="fas fa-glass-cheers mr-1"></i>
+                            <span>4.5% ABV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Peach Soju Cocktail</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱101</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Sweet peach soju cocktail</p>
+                        <div class="flex items-center text-sm text-blue-400">
+                            <i class="fas fa-glass-cheers mr-1"></i>
+                            <span>4.5% ABV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Blue Lemonade Soju Cocktail</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱100</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Refreshing blue citrus</p>
+                        <div class="flex items-center text-sm text-blue-400">
+                            <i class="fas fa-glass-cheers mr-1"></i>
+                            <span>4.5% ABV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dish-card bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-red-800">Melona Soju Cocktail</h3>
+                            <span class="text-lg font-bold text-yellow-700">₱96</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Korean melon flavor</p>
+                        <div class="flex items-center text-sm text-blue-400">
+                            <i class="fas fa-glass-cheers mr-1"></i>
+                            <span>4.5% ABV</span>
+                        </div>
+                    </div>
+                </div>
+
+
+    <!-- Contact & Reservations -->
+    <section id="contact" class="py-20 bg-red-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6">Make a Reservation</h2>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-1">Full Name</label>
+                            <input type="text" id="name" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-1">Email</label>
+                            <input type="email" id="email" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white">
+                        </div>
+                        <div>
+                            <label for="phone" class="block mb-1">Phone</label>
+                            <input type="tel" id="phone" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="date" class="block mb-1">Date</label>
+                                <input type="date" id="date" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white">
+                            </div>
+                            <div>
+                                <label for="time" class="block mb-1">Time</label>
+                                <input type="time" id="time" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="guests" class="block mb-1">Number of Guests</label>
+                            <select id="guests" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white">
+                                <option>1 person</option>
+                                <option>2 people</option>
+                                <option>3 people</option>
+                                <option>4 people</option>
+                                <option>5+ people</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="special" class="block mb-1">Special Requests</label>
+                            <textarea id="special" rows="3" class="w-full p-3 rounded bg-red-900 border border-red-700 text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-red-900 font-bold py-3 px-4 rounded transition duration-300">
+                            Book Now
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-yellow-300 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Location</h3>
+                                <p>123 Korean Street, Bonifacio Global City, Taguig, Metro Manila</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-yellow-300 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Phone</h3>
+                                <p>(02) 8123 4567</p>
+                                <p>+63 912 345 6789 (Mobile)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-yellow-300 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Email</h3>
+                                <p>reservations@kchic.com</p>
+                                <p>info@kchic.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-yellow-300 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Opening Hours</h3>
+                                <p>Monday-Saturday: 11:00 AM - 10:00 PM</p>
+                                <p>Sunday: 11:00 AM - 9:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-2xl font-bold text-red-800 mb-4">Digital Menu Access</h3>
+                            <table class="w-full mb-4">
+                                <tr>
+                                    <td class="w-1/3 pr-4">
+                                        <div class="bg-white p-2 rounded border border-gray-200">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://k-chic.com/menu" 
+                                                 alt="Digital Menu QR Code" 
+                                                 width="200" 
+                                                 height="200"
+                                                 class="mx-auto">
+                                        </div>
+                                    </td>
+                                    <td class="w-2/3">
+                                        <h4 class="text-lg font-bold text-red-800 mb-2">How to Use:</h4>
+                                        <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                                            <li>Open your phone's camera app</li>
+                                            <li>Point it at the QR code</li>
+                                            <li>Tap the notification to open our digital menu</li>
+                                            <li>Browse and order directly from your table</li>
+                                        </ol>
+                                        <p class="mt-4 text-sm text-gray-600 bg-yellow-50 p-2 rounded">
+                                            <i class="fas fa-info-circle text-yellow-500 mr-1"></i>
+                                            Save time! Scan and order while waiting for your server
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="text-center border-t pt-4">
+                                <p class="text-sm text-gray-500">
+                                    Trouble scanning? Visit: <span class="font-mono">k-chic.com/menu</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        
+                        <div>
+                            <h3 class="font-bold text-lg mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-white text-red-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-300 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-white text-red-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-300 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-white text-red-800 w-10 h-10 rounded-full flex items-center justify-center hover:bg-yellow-300 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="font-bold text-lg mb-4">How to Find Us</h3>
+                        <div class="bg-white p-1 rounded-lg">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.658359210936!2d121.04920231532115!3d14.55419198982726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c8f3fa2994af%3A0x89c988af4761c6f4!2sBonifacio%20High%20Street!5e0!3m2!1sen!2sph!4v1623397152854!5m2!1sen!2sph" 
+                                    width="100%" 
+                                    height="250" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy"
+                                    class="rounded-lg"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between mb-8">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="relative w-8 h-8 text-yellow-300">
+                            <i class="fas fa-bowl-food text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">The <span class="text-yellow-300">K</span>-Chic</h3>
+                    </div>
+                    <p class="max-w-xs">
+                        Bringing the authentic flavors and vibrant culture of Korea to Manila since 2015.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-yellow-300 transition">Home</a></li>
+                            <li><a href="#about" class="hover:text-yellow-300 transition">About</a></li>
+                            <li><a href="#menu" class="hover:text-yellow-300 transition">Menu</a></li>
+                            <li><a href="#gallery" class="hover:text-yellow-300 transition">Gallery</a></li>
+                            <li><a href="#contact" class="hover:text-yellow-300 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Information</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-yellow-300 transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Terms & Conditions</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Careers</a></li>
+                            <li><a href="#" class="hover:text-yellow-300 transition">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                        <p class="mb-4">
+                            Subscribe to get updates on special offers and events.
+                        </p>
+                        <form class="flex">
+                            <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l text-gray-900 w-full">
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-red-900 px-4 py-2 rounded-r font-bold transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-red-800 text-center">
+                <p>&copy; 2023 The K-Chic. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition duration-300 opacity-0 invisible hover:bg-red-900">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Menu Category Tabs
+        const menuCategories = document.querySelectorAll('.menu-category');
+        const menuSections = document.querySelectorAll('.menu-section');
+        
+        menuCategories.forEach(category => {
+            category.addEventListener('click', () => {
+                // Remove active class from all categories
+                menuCategories.forEach(cat => {
+                    cat.classList.remove('bg-red-800', 'text-white');
+                    cat.classList.add('bg-white', 'text-red-800');
+                });
+                
+                // Add active class to clicked category
+                category.classList.remove('bg-white', 'text-red-800');
+                category.classList.add('bg-red-800', 'text-white');
+                
+                // Hide all menu sections
+                menuSections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show selected menu section
+                const categoryName = category.getAttribute('data-category');
+                document.getElementById(`${categoryName}-menu`).classList.remove('hidden');
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
